@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 
 # Story model (represents an entire story, made up of Chapters)
 class Story(models.Model):
+    class Meta():
+        verbose_name_plural = 'stories'
+
     title = models.CharField(max_length=140)
     author = models.ForeignKey(User)
 
