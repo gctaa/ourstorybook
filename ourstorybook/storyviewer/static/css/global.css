@@ -1,0 +1,17 @@
+/* Import Google fonts */
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+/* Global <body> style */
+body {
+    margin: 0px;
+    font-family: 'Oswald', sans-serif;
+}
+
+/* Site <header> style */
+header h1 {
+    padding: 20px;
+    margin: 0px;
+    text-align: right;
+    color: #FFFFFF;
+    background: #9932CC;
+}

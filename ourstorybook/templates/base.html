@@ -3,10 +3,9 @@
 
 <head>
     <title>{% block title %}Our Storybook{% endblock %}</title>
-
-    {% block scripts %} {% endblock %}
-
     <meta charset="utf-8"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}/css/global.css" />
+    {% block scripts %} {% endblock %}
 </head>
 
 <body>

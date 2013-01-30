@@ -2,3 +2,4 @@
 database
 venv
 ourstorybook/settings_dev.py
+admin/
