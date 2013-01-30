@@ -80,6 +80,7 @@ WSGI_APPLICATION = 'ourstorybook.wsgi.application'
 
 TEMPLATE_DIRS = (
     os.path.join(SITE_ROOT, 'templates'),
+    os.path.join(SITE_ROOT, 'storyviewer/templates')
 )
 
 BASE_INSTALLED_APPS = (
