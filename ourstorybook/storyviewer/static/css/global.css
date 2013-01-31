@@ -26,6 +26,21 @@ header nav a, header nav a:visited {
     text-decoration: none;
     color: #D8BFD8;
 }
+header nav a:hover {
+    color: #FFFFFF;
+}
 header nav a, header nav span {
     margin-right: 10px;
+}
+
+/* Site <section> style */
+section {
+    margin: 0px 30px 0px 30px;
+    padding: 10px;
+    border: 1px dotted #D8BFD8;
+    font-family: Arial, Helvitica, sans-serif;
+}
+/* Site heading block style */
+.heading {
+    margin-left: 30px;
 }
