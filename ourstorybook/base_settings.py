@@ -19,6 +19,9 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/stories/'
+
 # Absolute filesystem path to the site root
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
