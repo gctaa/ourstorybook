@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from django.views.generic import ListView, RedirectView
+from django.views.generic import DetailView, ListView, RedirectView
 from django.contrib.auth.views import login, logout
 from storyviewer.models import Story
 
@@ -10,6 +10,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', RedirectView.as_view(url='/stories/')),
     url(r'^stories/$', ListView.as_view(model=Story, queryset=Story.objects.all())),
+    url(r'^stories/(?P<pk>\d+)/$', DetailView.as_view(model=Story)),
     url(r'^login/$', login),
     url(r'^logout/$', logout, {'next_page': '/'}),
 
