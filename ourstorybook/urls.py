@@ -8,10 +8,11 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', RedirectView.as_view(url="/stories/")),
+    url(r'^$', RedirectView.as_view(url='/stories/')),
     url(r'^stories/$', ListView.as_view(model=Story, queryset=Story.objects.all())),
     url(r'^login/$', login),
-    
+    url(r'^logout/$', logout, {'next_page': '/'}),
+
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
