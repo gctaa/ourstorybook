@@ -13,7 +13,7 @@ header h1 {
     margin: 0px;
     text-align: right;
     color: #FFFFFF;
-    background: #9932CC;
+    background: #1B70B0;
 }
 header nav {
     padding: 20px;
@@ -24,7 +24,7 @@ header nav {
 }
 header nav a, header nav a:visited {
     text-decoration: none;
-    color: #D8BFD8;
+    color: #A6C9E3;
 }
 header nav a:hover {
     color: #FFFFFF;
