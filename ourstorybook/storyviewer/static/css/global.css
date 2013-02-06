@@ -47,6 +47,9 @@ section {
 }
 
 /* Site body style */
+#storyList {
+    margin-top: 40px;
+}
 .button {
     float: left;
     padding: 2px 5px 2px 5px;
