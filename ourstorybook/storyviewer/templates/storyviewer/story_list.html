@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 
-{% block heading %}Our stories:{% endblock %}
-
 {% block content %}
+
+{% if user.is_authenticated %}
+<a class="button" href="/create_story/">Create a new story</a>
+{% endif %}
+
 <ul>
     {% for item in object_list %}
     <li><a href="/stories/{{item.id}}">{{item}}</a></li>
     {% endfor %}
 </ul>
+
 {% endblock %}

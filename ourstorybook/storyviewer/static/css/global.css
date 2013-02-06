@@ -38,9 +38,31 @@ section {
     margin: 0px 30px 0px 30px;
     padding: 10px;
     border: 1px dotted #D8BFD8;
-    font-family: Arial, Helvitica, sans-serif;
+    font-family: 'Oswald', sans-seriff;
 }
+
 /* Site heading block style */
 .heading {
     margin-left: 30px;
+}
+
+/* Site body style */
+.button {
+    float: left;
+    padding: 2px 5px 2px 5px;
+    background-color: #DDD;
+    border: 1px solid #1B70B0;
+    border-radius: 10px;
+    color: #1B70B0;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+/* Site footer style */
+footer {
+    margin: 0px 30px 0px 30px;
+    padding-top: 10px;
+}
+#djangoIcon {
+    float: right;
 }
