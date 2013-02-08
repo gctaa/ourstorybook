@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.views.generic import DetailView, ListView, RedirectView
 from django.contrib.auth.views import login, logout
 from storyviewer.models import Story
+from storyviewer.views import StoryCreationView
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -11,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^$', RedirectView.as_view(url='/stories/')),
     url(r'^stories/$', ListView.as_view(model=Story, queryset=Story.objects.all())),
     url(r'^stories/(?P<pk>\d+)/$', DetailView.as_view(model=Story)),
+    url(r'^create_story/$', StoryCreationView.as_view(template_name='storyviewer/story_create.html')),
     url(r'^login/$', login),
     url(r'^logout/$', logout, {'next_page': '/'}),
 
