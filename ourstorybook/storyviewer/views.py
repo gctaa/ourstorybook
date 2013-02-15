@@ -1,4 +1,5 @@
 from django.views.generic import CreateView
+from django.http import HttpResponseRedirect
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import permission_required
 from forms import StoryCreateForm
