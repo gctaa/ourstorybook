@@ -3,6 +3,9 @@
 {% block heading %}{{object.title}}{% endblock %}
 
 {% block content %}
+{% if user.is_authenticated %}
+<a class="button" href="/create_chapter/{{object.id}}">Propose a new chapter</a>
+{% endif %}
 <p id="storyDescription">{{object.description}}</p>
 Author: {{object.author}}
 {% endblock %}

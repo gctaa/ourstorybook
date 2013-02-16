@@ -1,0 +1,18 @@
+{%  extends "base.html" %}
+
+{% block heading %}Chapter proposal for: {{story.title}}{% endblock %}
+
+{% block content %}
+<form action="/create_chapter/{{story.id}}/" enctype="multipart/form-data" method="post">{% csrf_token %}
+{% for hidden in form.hidden_fields %}
+    {{ hidden }}
+{% endfor %}
+
+{% for field in form.visible_fields %}
+    {{ field.errors }}
+    <h3>{{ field.label_tag }}</h3> {{ field }}
+{% endfor %}
+<p><button type="submit">Propose chapter</button></p>
+</form>
+
+{% endblock %}
