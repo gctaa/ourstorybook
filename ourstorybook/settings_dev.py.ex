@@ -14,3 +14,9 @@ DATABASES = {
 SECRET_KEY = < replace with your own secret key, and keep it a secret! >
 
 INSTALLED_APPS = BASE_INSTALLED_APPS
+
+# Only needed for use on heroku and production deployments (DEBUG must be false)
+ALLOWED_HOSTS = (
+    # '.herokuapp.com',
+    # '.gctaa.net',
+)
