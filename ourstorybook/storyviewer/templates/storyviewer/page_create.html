@@ -1,0 +1,18 @@
+{%  extends "base.html" %}
+
+{% block heading %}Creating a new page for: {{story.title}}{% endblock %}
+
+{% block content %}
+<form action="/add_page/{{story.id}}/" enctype="multipart/form-data" method="post">{% csrf_token %}
+{% for hidden in form.hidden_fields %}
+    {{ hidden }}
+{% endfor %}
+
+{% for field in form.visible_fields %}
+    {{ field.errors }}
+    <h3>{{ field.label_tag }}</h3> {{ field }}
+{% endfor %}
+<p><button type="submit">Add page</button></p>
+</form>
+
+{% endblock %}
