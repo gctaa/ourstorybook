@@ -1,12 +1,12 @@
 from django.forms import ModelForm
-from models import Story, Chapter
+from models import Story, Page
 
 class StoryCreateForm(ModelForm):
     class Meta:
         model = Story
         exclude = ("author")
 
-class ChapterCreateForm(ModelForm):
+class PageCreateForm(ModelForm):
     class Meta:
-        model = Chapter
+        model = Page
         exclude = ("author", "parent", "story")

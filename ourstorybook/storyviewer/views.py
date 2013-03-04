@@ -2,7 +2,7 @@ from django.views.generic import CreateView
 from django.http import HttpResponseRedirect
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import permission_required
-from forms import StoryCreateForm, ChapterCreateForm
+from forms import StoryCreateForm, PageCreateForm
 from models import Story
 
 class StoryCreationView(CreateView):
@@ -18,16 +18,16 @@ class StoryCreationView(CreateView):
         object.save()
         return HttpResponseRedirect('/stories/')
         
-class ChapterCreationView(CreateView):
-    form_class = ChapterCreateForm
+class PageCreationView(CreateView):
+    form_class = PageCreateForm
 
-    @method_decorator(permission_required('storyviewer.edit_chapter'))
+    @method_decorator(permission_required('storyviewer.edit_page'))
     def dispatch(self, *args, **kwargs):
         self.story = Story.objects.get(id=kwargs['pk'])
-        return super(ChapterCreationView, self).dispatch(*args, **kwargs)
+        return super(PageCreationView, self).dispatch(*args, **kwargs)
         
     def get_context_data(self, **kwargs):
-        context = super(ChapterCreationView, self).get_context_data(**kwargs)
+        context = super(PageCreationView, self).get_context_data(**kwargs)
         context['story'] = self.story
         return context
 
