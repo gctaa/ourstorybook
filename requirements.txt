@@ -2,3 +2,4 @@ Django==1.5
 South
 psycopg2
 dj-database-url
+django-mptt

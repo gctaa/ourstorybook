@@ -97,6 +97,7 @@ BASE_INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 
+    'mptt',
     'ourstorybook.storyviewer',
     'south',
 
