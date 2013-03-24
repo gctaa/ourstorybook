@@ -21,7 +21,7 @@ class StoryCreationView(CreateView):
 
 class StoryDetailView(DetailView):
     model = Story
-    template_name='storyviewer/story_detail.html'
+    template_name = 'storyviewer/story_detail.html'
     
     def get_context_data(self, **kwargs):
         context = super(StoryDetailView, self).get_context_data(**kwargs)
@@ -30,7 +30,7 @@ class StoryDetailView(DetailView):
 
 class PageCreationView(CreateView):
     form_class = PageCreateForm
-    template_name='storyviewer/page_create.html'
+    template_name = 'storyviewer/page_create.html'
 
     @method_decorator(permission_required('storyviewer.edit_page'))
     def dispatch(self, *args, **kwargs):
@@ -47,4 +47,13 @@ class PageCreationView(CreateView):
         object.author = self.request.user
         object.story = self.story
         object.save()
-        return HttpResponseRedirect('/stories/%s/' % self.story.id) # TODO
+        return HttpResponseRedirect('/stories/%s/' % self.story.id)
+        
+class PageDetailView(DetailView):
+    model = Page
+    template_name = 'storyviewer/page_detail.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super(PageDetailView, self).get_context_data(**kwargs)
+        context['nodes'] = self.object.get_descendants()
+        return context
