@@ -14,7 +14,7 @@ urlpatterns = patterns('',
     url(r'^stories/(?P<pk>\d+)/$', StoryDetailView.as_view()),
     url(r'^create_story/$', StoryCreationView.as_view()),
     url(r'^pages/(?P<pk>\d+)/$', PageDetailView.as_view()),
-    url(r'^add_page/(?P<pk>\d+)/$', PageCreationView.as_view()),
+    url(r'^add_page/$', PageCreationView.as_view()),
     url(r'^login/$', login),
     url(r'^logout/$', logout, {'next_page': '/'}),
 

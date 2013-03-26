@@ -3,7 +3,8 @@
 {% block heading %}Creating a new page for: {{story.title}}{% endblock %}
 
 {% block content %}
-<form action="/add_page/{{story.id}}/" enctype="multipart/form-data" method="post">{% csrf_token %}
+<form action="/add_page/" enctype="multipart/form-data" method="post">
+{% csrf_token %}
 {% for hidden in form.hidden_fields %}
     {{ hidden }}
 {% endfor %}

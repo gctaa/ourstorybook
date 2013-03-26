@@ -5,7 +5,7 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<a class="button" href="/add_page/{{object.id}}">Add a new page</a>
+<a class="button" href="/add_page/?story={{object.id}}">Add a new page</a>
 {% endif %}
 <p id="storyDescription">{{object.description}}</p>
 Pages:
