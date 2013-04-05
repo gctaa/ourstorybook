@@ -47,7 +47,7 @@ class PageCreationView(CreateView):
         elif self.request.method == 'POST':
             request_method = self.request.POST
         
-        import pdb; pdb.set_trace();
+        #import pdb; pdb.set_trace();
         
         self.story = get_object_or_404(Story, pk=request_method.get('story'))
         try:
