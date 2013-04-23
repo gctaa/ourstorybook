@@ -3,3 +3,4 @@ South
 psycopg2
 dj-database-url
 django-mptt
+pylibmc

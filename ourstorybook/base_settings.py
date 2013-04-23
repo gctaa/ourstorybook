@@ -76,6 +76,8 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+
 ROOT_URLCONF = 'ourstorybook.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
