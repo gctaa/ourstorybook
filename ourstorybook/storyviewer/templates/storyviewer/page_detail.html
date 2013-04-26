@@ -5,9 +5,6 @@
 
 {% block content %}
 <p>{{object.content}}</p>
-{% if user.is_authenticated %}
-<a class="button" href="/add_page/?story={{object.story.id}}&parent_page={{object.id}}">Continue this plot line</a>
-{% endif %}
 Children:
 <ul>
     {% recursetree nodes %}
@@ -21,4 +18,9 @@ Children:
         </li>
     {% endrecursetree %}
 </ul>
+
+{% if user.is_authenticated %}
+<br/><a class="button" href="/add_page/">Continue this plot line</a>
+{% endif %}
+
 {% endblock %}
