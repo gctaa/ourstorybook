@@ -15,6 +15,8 @@ SECRET_KEY = < replace with your own secret key, and keep it a secret! >
 
 INSTALLED_APPS = BASE_INSTALLED_APPS
 
+# Set this to restrict registrations to only people who know the token
+REGISTRATION_TOKEN = ''
 # Only needed for use on heroku and production deployments (DEBUG must be false)
 ALLOWED_HOSTS = (
     # '.herokuapp.com',

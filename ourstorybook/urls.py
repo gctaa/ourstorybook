@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.views.generic import DetailView, ListView, RedirectView
 from django.contrib.auth.views import login, logout
 from storyviewer.models import Story
-from storyviewer.views import StoryCreationView, StoryDetailView, PageCreationView, PageDetailView
+from storyviewer.views import StoryCreationView, StoryDetailView, PageCreationView, PageDetailView, register
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^add_page/$', PageCreationView.as_view()),
     url(r'^login/$', login),
     url(r'^logout/$', logout, {'next_page': '/'}),
+    url(r'^register/$', register),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

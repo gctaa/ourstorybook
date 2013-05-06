@@ -1,9 +1,11 @@
+from django.conf import settings
 from django.views.generic import CreateView, DetailView
 from django.http import HttpResponseRedirect
+from django.template import RequestContext
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import permission_required
-from django.shortcuts import get_object_or_404
-from forms import StoryCreateForm, PageCreateForm
+from django.shortcuts import render_to_response, get_object_or_404
+from forms import StoryCreateForm, PageCreateForm, RichUserCreationForm, TokenRegistrationForm
 from models import Story, Page
 
 class StoryCreationView(CreateView):
@@ -40,10 +42,6 @@ class PageCreationView(CreateView):
     form_class = PageCreateForm
     template_name = 'storyviewer/page_create.html'
 
-    #
-    #   TODO - ensure input is cleaned
-    #   do some magic in form_valid to ensure parents are set (see django-mptt docs)
-    #
     @method_decorator(permission_required('storyviewer.edit_page'))
     def dispatch(self, *args, **kwargs):
         self.story = get_object_or_404(Story, pk=self.request.session.get('last_story_id'))
@@ -81,3 +79,20 @@ class PageDetailView(DetailView):
         context = super(PageDetailView, self).get_context_data(**kwargs)
         context['nodes'] = self.object.get_descendants()
         return context
+
+def register(request):
+    if request.method == 'POST':
+        if settings.REGISTRATION_TOKEN:
+            form = TokenRegistrationForm(request.POST)
+        else:
+            form = RichUserCreationForm(request.POST)
+        if form.is_valid():
+            new_user = form.save()
+            return HttpResponseRedirect("/login/")
+    else:
+        if settings.REGISTRATION_TOKEN:
+            form = TokenRegistrationForm()
+        else:
+            form = RichUserCreationForm()
+
+    return render_to_response("registration/register.html", {'form' : form, }, context_instance=RequestContext(request))
