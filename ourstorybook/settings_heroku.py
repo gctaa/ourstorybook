@@ -8,12 +8,6 @@ ALLOWED_HOSTS = (
 
 DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 
-CACHE = {
-    'default': {
-        'BACKEND': 'django_pylibmc.memcached.PyLibMCCache'
-    }
-}
-
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 REGISTRATION_TOKEN = 'HILT Institute'

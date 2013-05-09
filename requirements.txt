@@ -3,5 +3,3 @@ South
 psycopg2
 dj-database-url
 django-mptt
-pylibmc
-django-pylibmc-sasl==0.2.4
