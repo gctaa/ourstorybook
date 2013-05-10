@@ -3,7 +3,7 @@ from django.views.generic import CreateView, DetailView
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response, get_object_or_404
 from forms import StoryCreateForm, PageCreateForm, RichUserCreationForm, TokenRegistrationForm
 from models import Story, Page
@@ -12,7 +12,7 @@ class StoryCreationView(CreateView):
     form_class = StoryCreateForm
     template_name = 'storyviewer/story_create.html'
 
-    @method_decorator(permission_required('storyviewer.edit_story'))
+    @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         self.request.session['last_story_id'] = None
         self.request.session['last_page_id'] = None
@@ -42,7 +42,7 @@ class PageCreationView(CreateView):
     form_class = PageCreateForm
     template_name = 'storyviewer/page_create.html'
 
-    @method_decorator(permission_required('storyviewer.edit_page'))
+    @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         self.story = get_object_or_404(Story, pk=self.request.session.get('last_story_id'))
         parent_page_id = self.request.session.get('last_page_id')
