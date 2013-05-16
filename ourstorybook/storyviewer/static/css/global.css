@@ -1,11 +1,11 @@
 /* Import Google fonts */
 @import url(http://fonts.googleapis.com/css?family=Oswald);
 
-/* Global <body> style */
-body {
-    margin: 0px;
-    font-family: 'Oswald', sans-serif;
-}
+/* Site <body> style */
+/* body {
+      margin: 0px;
+  }
+*/
 
 /* Site <header> style */
 header h1 {
@@ -41,23 +41,9 @@ section {
     font-family: 'Oswald', sans-seriff;
 }
 
-/* Site heading block style */
-.heading {
-    margin-left: 30px;
-}
-
 /* Site body style */
 #storyDescription {
     font-family: sans-seriff;
-}
-.button {
-    padding: 2px 5px 2px 5px;
-    background-color: #DDD;
-    border: 1px solid #1B70B0;
-    border-radius: 10px;
-    color: #1B70B0;
-    text-decoration: none;
-    font-size: 0.9em;
 }
 
 /* Site footer style */
