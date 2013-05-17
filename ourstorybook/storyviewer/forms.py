@@ -28,7 +28,7 @@ class RichUserCreationForm(UserCreationForm):
         return user
 
 class TokenRegistrationForm(RichUserCreationForm):
-    token = CharField(max_length=20, label="Registration Token")
+    token = CharField(max_length=20, label="Registration Token", help_text="Enter the registration token given to you by your teacher.")
 
     def clean_token(self):
         data = self.cleaned_data["token"]
